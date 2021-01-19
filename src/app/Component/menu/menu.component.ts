@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Dish } from 'src/app/model/dish';
-import { DISHES} from 'src/app/model/dishes';
+import { DISHES} from 'src/app/service/dishes';
 import { DishService } from 'src/app/service/dish.service';
 
 @Component({
