@@ -41,22 +41,30 @@
       <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width">
-          <input matInput formControlName="firstname" placeholder="First Name" type="text">
-          <mat-error *ngIf="feedbackForm.get('firstname').hasError('required') && feedbackForm.get('firstname').touched">First name is required"></mat-error>
+          <input matInput formControlName="firstname" placeholder="First Name" type="text" required>
+          <mat-error *ngIf="formErrors.firstname">
+            {{formErrors.firstname}}
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="half-width">
-          <input matInput formControlName="lastname" placeholder="Last Name" type="text">
-          <mat-error *ngIf="feedbackForm.get('lastname').hasError('required') && feedbackForm.get('lastname').touched">Last name is required"></mat-error>
+          <input matInput formControlName="lastname" placeholder="Last Name" type="text" required>
+          <mat-error *ngIf="formErrors.lastname">
+            {{formErrors.lastname}}
+          </mat-error>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field class="half-width">
-          <input matInput formControlName="tel" placeholder="Tel. Number" type="tel">
-          <mat-error *ngIf="feedbackForm.get('tel').hasError('required') && feedbackForm.get('tel').touched">Tel. number is required"></mat-error>
+          <input matInput formControlName="tel" placeholder="Tel. Number" pattern="[0-9]*" type="tel" required>
+          <mat-error *ngIf="formErrors.tel">
+            {{formErrors.tel}}
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="half-width">
-          <input matInput formControlName="email" placeholder="Email" type="email">
-          <mat-error *ngIf="feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched">Email is required"></mat-error>
+          <input matInput formControlName="email" placeholder="Email" email type="email" required>
+          <mat-error *ngIf="formErrors.email">
+            {{formErrors.email}}
+          </mat-error>
         </mat-form-field>
       </p>
       <table class="form-size">
