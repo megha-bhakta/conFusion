@@ -18,6 +18,7 @@ import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input';
 import { MatCheckboxModule} from '@angular/material/checkbox';
+import { MatSliderModule} from '@angular/material/slider';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -62,6 +63,7 @@ import { LoginComponent } from './Component/login/login.component';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    MatSliderModule,
     MatSelectModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
