@@ -39,6 +39,7 @@ export class DishdetailComponent implements OnInit {
   commentForm:FormGroup;
   comment:Comments;
   errMsg:string;
+  dishCopy: Dish;
   constructor(private dishService:DishService,
               private activatedRouter:ActivatedRoute,
               private location:Location,
@@ -50,7 +51,7 @@ export class DishdetailComponent implements OnInit {
   ngOnInit() {
     this.dishService.getIds().subscribe(dishIds => this.dishIds = dishIds);
     this.activatedRouter.params.pipe(switchMap((params: Params) => this.dishService.getDish(params['id'])))
-    .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id);},
+    .subscribe(dish => { this.dish = dish;this.dishCopy = dish; this.setPrevNext(dish.id);},
     errMsg => this.errMsg = <any>errMsg );
   }
 
@@ -99,7 +100,11 @@ export class DishdetailComponent implements OnInit {
   onSubmit() {
     this.comment = this.commentForm.value;
     this.comment.date= new Date().toDateString();
-    this.dish.comments.push(this.comment);
+    this.dishCopy.comments.push(this.comment);
+    this.dishService.putDish(this.dishCopy)
+    .subscribe(dish =>
+      {this.dish= dish; this.dishCopy=dish;
+      },errMsg => this.errMsg = <any>errMsg );
     console.log(this.comment);
     this.commentForm.reset({
       author: '',
