@@ -33,6 +33,10 @@ import { ContactComponent } from './Component/contact/contact.component';
 import { RouterModule} from '@angular/router';
 import { routes} from '../app/route';
 import { LoginComponent } from './Component/login/login.component';
+import { HttpClientModule} from '@angular/common/http';
+import { baseURL} from 'src/app/service/baseurl';
+import { PromotionService } from './service/promotion.service';
+import { LeaderService } from './service/leader.service';
 
 
 @NgModule({
@@ -68,10 +72,13 @@ import { LoginComponent } from './Component/login/login.component';
     MatSlideToggleModule,
     MatProgressSpinnerModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [DishService],
+  providers: [DishService,
+            {provide: 'baseURL', useValue: baseURL}
+          ],
   entryComponents:[
     LoginComponent
   ],
