@@ -5,11 +5,20 @@ import {Promotion} from 'src/app/model/promotion';
 import {PromotionService} from 'src/app/service/promotion.service';
 import{Leader} from 'src/app/model/leader';
 import {LeaderService} from 'src/app/service/leader.service';
+import { expand, flyInOut } from 'src/app/animations/app.animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  host:{
+    '[@flyInOut]':'true',
+    'style':'display:block;'
+  },
+  animations:[
+    flyInOut(),
+    expand()
+  ]
 })
 export class HomeComponent implements OnInit {
 
