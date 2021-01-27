@@ -37,6 +37,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { baseURL} from 'src/app/service/baseurl';
 import { PromotionService } from './service/promotion.service';
 import { LeaderService } from './service/leader.service';
+import { HighlightDirective } from './directives/highlight.directive';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { LeaderService } from './service/leader.service';
     AboutComponent,
     ContactComponent,
     LoginComponent,
+    HighlightDirective,
 
   ],
   imports: [
